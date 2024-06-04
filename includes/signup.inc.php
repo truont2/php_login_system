@@ -42,6 +42,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($errors) {
             // return true if there is data in the 
             $_SESSION["errors_signup"] = $errors;
+
+            // store data that has been typed by the user
+            $signupData = [
+                "username" => $username, 
+                "email" => $email
+            ];
+
+            $_SESSION["signup_data"] = $signupData;
+
+
             header("Location: ../index.php");
             die(); // end script
         }

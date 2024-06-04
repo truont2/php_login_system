@@ -1,6 +1,8 @@
 <?php
     require_once 'includes/config_session.inc.php';
     require_once 'includes/signup_view.inc.php';
+
+    // preload data if you aleady submitted something but there was an error so you dont have to copy everything
 ?>
 
 
@@ -23,9 +25,9 @@
 
     <h3>Signup</h3>
     <form action="includes/signup.inc.php" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="pwd" placeholder="Password">
-        <input type="text" name="email" placeholder="E-mail">
+        <?php 
+            signup_inputs()
+        ?>
         <button>Signup</button>
     </form>
     <?php

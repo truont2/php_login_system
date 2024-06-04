@@ -43,8 +43,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // return true if there is data in the 
             $_SESSION["errors_signup"] = $errors;
             header("Location: ../index.php");
+            die(); // end script
         }
 
+        // now add the users
+        create_user($pdo,$username,$pwd,$email);
+
+        // to send the user to a new page and stop any other script from running
+        header("Location: ../index.php?signup=success");
+
+        $pdo = null;
+        $stmt = null;
+        die( ); // to stop the code
 
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());

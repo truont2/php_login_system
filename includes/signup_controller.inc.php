@@ -37,3 +37,10 @@ function is_email_registered(object $pdo, string $email) {
         return false;
     }
 }
+
+
+// post:create a user
+function create_user(object $pdo, string $username, string $pwd, string $email) {
+    // function in the model page
+    set_user($pdo,$username,$pwd, $email);
+}
